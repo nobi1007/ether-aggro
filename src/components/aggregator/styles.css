@@ -1,0 +1,25 @@
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.heading-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.heading-container .back-cta {
+    width: 90px;
+}
+
+.back-cta .back-cta-icon {
+    margin: 0 25px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #000;
+}
