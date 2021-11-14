@@ -1,10 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import DashboardComp from "../components/dashboard";
 
 export default function Dashboard() {
-    return (
-        <div>
-            <Link to="/aggregator">Go To Aggregator</Link>
-        </div>
-    );
+    return <DashboardComp />;
 }

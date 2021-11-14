@@ -1,0 +1,44 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-container {
+    padding: 15px;
+}
+
+.header-text {
+    color: #2589f4;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.subheading-container {
+    margin: 15px 0;
+}
+
+.subheader-text {
+    font-style: italic;
+    color: #999;
+    font-size: 16px;
+}
+
+.features-container {
+    width: 60vw;
+    padding: 20px;
+    background: #eee;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ddd;
+    margin: 50px 0;
+}
+
+code {
+    background-color: #c9c9c9;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+
+li {
+    margin: 4px 0;
+}
