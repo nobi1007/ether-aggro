@@ -84,6 +84,7 @@ export const useAggregatorComp = () => {
                     coinsBalanceInWei,
                     coinsBalanceInEther,
                     transactionIds: [],
+                    blockNumber,
                 })
             );
             if (blockNumber === "latest") {
@@ -122,6 +123,7 @@ export const useAggregatorComp = () => {
     };
 
     useEffect(() => {
+        setIsFormSubmitting(true);
         const web3Client = createClient(
             Web3,
             initialFormValues?.infuraProjectId
@@ -132,6 +134,10 @@ export const useAggregatorComp = () => {
             initialFormValues.blockNumber,
             initialFormValues?.infuraProjectId
         );
+        return () => {
+            setIsFormSubmitting(false);
+            clearInterval(interval.current);
+        };
     }, []);
 
     return {

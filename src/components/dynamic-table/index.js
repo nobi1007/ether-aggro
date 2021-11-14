@@ -2,13 +2,9 @@ import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { Cell, Column, HeaderCell, Table } from "rsuite-table";
 
-const DynamicTable = ({ isLoading = false }) => {
+const DynamicTable = ({ isLoading = false, blockNumber }) => {
     const transactionDetailsData = useSelector(
         ({ transactionDetails: { data = {} } = {} }) => data
-    );
-    const selectedAddressId = useSelector(
-        ({ selectedAddress: { value: selectedAddressId = "" } = {} }) =>
-            selectedAddressId
     );
     const data = useMemo(() => {
         return Object.values(transactionDetailsData)
@@ -18,8 +14,8 @@ const DynamicTable = ({ isLoading = false }) => {
                     id: index + 1,
                 };
             })
-            .filter((eachObject) => eachObject.address === selectedAddressId);
-    }, [transactionDetailsData, selectedAddressId]);
+            .filter((eachObject) => eachObject.blockNumber === blockNumber);
+    }, [transactionDetailsData, blockNumber]);
 
     const [sortColumn, setSortColumn] = useState();
     const [sortType, setSortType] = useState();
@@ -90,6 +86,11 @@ const DynamicTable = ({ isLoading = false }) => {
             <Column width={200} resizable sortable>
                 <HeaderCell>To (Address)</HeaderCell>
                 <Cell dataKey="to" />
+            </Column>
+
+            <Column width={70} resizable sortable>
+                <HeaderCell>Transaction Type</HeaderCell>
+                <Cell dataKey="transactionType" />
             </Column>
 
             <Column width={200} resizable sortable>

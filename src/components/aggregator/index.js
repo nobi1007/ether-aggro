@@ -30,7 +30,10 @@ export default function AggregatorComp() {
                     <DetailForm onFormSubmit={onDetailFormSubmit} />
                 </div>
             </div>
-            <DynamicTable isLoading={isFormSubmitting} />
+            <DynamicTable
+                isLoading={isFormSubmitting}
+                blockNumber={selectedAddressObject?.blockNumber}
+            />
         </div>
     );
 }
