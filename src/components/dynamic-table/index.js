@@ -63,9 +63,6 @@ const DynamicTable = ({ isLoading = false, blockNumber }) => {
             sortType={sortType}
             onSortColumn={handleSortColumn}
             loading={loading || isLoading}
-            onRowClick={(data) => {
-                console.log(data);
-            }}
             style={{ borderRadius: "8px" }}
         >
             <Column width={70} align="center" fixed sortable>

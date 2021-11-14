@@ -18,9 +18,6 @@ export function transactionChecker(
     const account = accountAddress?.toLowerCase();
     return async function checkBlock() {
         let block = await web3.eth.getBlock(blockNumber);
-        let number = block?.number;
-        console.log("Searching block " + number);
-
         const batch = new web3.BatchRequest();
         const blocks = [];
 

@@ -69,7 +69,6 @@ export const useAggregatorComp = () => {
             params: [address, "latest"],
             id: 1,
         }).then(({ data = {} }) => {
-            console.log(data);
             const coinsBalanceInHex = data?.result;
             const coinsBalanceInWei = parseInt(
                 coinsBalanceInHex.slice(2, coinsBalanceInHex.length),
@@ -93,7 +92,6 @@ export const useAggregatorComp = () => {
                         setIsFormSubmitting(true);
                         transactionChecker(client, address, blockNumber)().then(
                             (val) => {
-                                console.log(val, "nnn");
                                 addTransactionObjects(
                                     val,
                                     blockNumber,
@@ -106,7 +104,6 @@ export const useAggregatorComp = () => {
                 } else {
                     transactionChecker(client, address, blockNumber)().then(
                         (val) => {
-                            console.log(val, "norman");
                             addTransactionObjects(val, blockNumber, address);
                             setIsFormSubmitting(false);
                         }
