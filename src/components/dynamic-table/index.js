@@ -14,7 +14,11 @@ const DynamicTable = ({ isLoading = false, blockNumber }) => {
                     id: index + 1,
                 };
             })
-            .filter((eachObject) => eachObject.blockNumber === blockNumber);
+            .filter((eachObject) =>
+                blockNumber.toLowerCase() === "all"
+                    ? true
+                    : eachObject.blockNumber === blockNumber
+            );
     }, [transactionDetailsData, blockNumber]);
 
     const [sortColumn, setSortColumn] = useState();
@@ -53,7 +57,7 @@ const DynamicTable = ({ isLoading = false, blockNumber }) => {
 
     return (
         <Table
-            height={420}
+            autoHeight
             data={getData()}
             sortColumn={sortColumn}
             sortType={sortType}
@@ -62,6 +66,7 @@ const DynamicTable = ({ isLoading = false, blockNumber }) => {
             onRowClick={(data) => {
                 console.log(data);
             }}
+            style={{ borderRadius: "8px" }}
         >
             <Column width={70} align="center" fixed sortable>
                 <HeaderCell>Id</HeaderCell>

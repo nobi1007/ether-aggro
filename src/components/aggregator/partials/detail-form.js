@@ -52,6 +52,7 @@ export default function DetailForm({ onFormSubmit }) {
                     name="blockNumber"
                     type="text"
                 />
+                <Form.HelpText tooltip>Block Number is required</Form.HelpText>
             </Form.Group>
             <Button
                 type="submit"

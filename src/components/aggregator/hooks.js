@@ -87,25 +87,33 @@ export const useAggregatorComp = () => {
                     blockNumber,
                 })
             );
-            if (blockNumber === "latest") {
-                interval.current = setInterval(() => {
-                    setIsFormSubmitting(true);
+            if (blockNumber.toLowerCase() !== "all") {
+                if (blockNumber === "latest") {
+                    interval.current = setInterval(() => {
+                        setIsFormSubmitting(true);
+                        transactionChecker(client, address, blockNumber)().then(
+                            (val) => {
+                                console.log(val, "nnn");
+                                addTransactionObjects(
+                                    val,
+                                    blockNumber,
+                                    address
+                                );
+                                setIsFormSubmitting(false);
+                            }
+                        );
+                    }, 10000);
+                } else {
                     transactionChecker(client, address, blockNumber)().then(
                         (val) => {
-                            console.log(val, "nnn");
+                            console.log(val, "norman");
                             addTransactionObjects(val, blockNumber, address);
                             setIsFormSubmitting(false);
                         }
                     );
-                }, 10000);
+                }
             } else {
-                transactionChecker(client, address, blockNumber)().then(
-                    (val) => {
-                        console.log(val, "norman");
-                        addTransactionObjects(val, blockNumber, address);
-                        setIsFormSubmitting(false);
-                    }
-                );
+                setIsFormSubmitting(false);
             }
         });
     }

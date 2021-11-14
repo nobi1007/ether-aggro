@@ -19,21 +19,25 @@ export default function AggregatorComp() {
                         <ArowBackIcon className="back-cta-icon" />
                     </Link>
                 </div>
-                <h2>Dynamic Data Aggregator</h2>
+                <div style={{ fontWeight: "bold", fontSize: "16px" }}>
+                    Infura Data Aggregator
+                </div>
                 <div className="back-cta"></div>
+            </div>
+            <div className="address-details-container">
+                <AddressDetails data={selectedAddressObject} />
             </div>
             <div className="upper-body">
                 <div className="upper-body-left">
-                    <AddressDetails data={selectedAddressObject} />
+                    <DynamicTable
+                        isLoading={isFormSubmitting}
+                        blockNumber={selectedAddressObject?.blockNumber}
+                    />
                 </div>
                 <div className="upper-body-right">
                     <DetailForm onFormSubmit={onDetailFormSubmit} />
                 </div>
             </div>
-            <DynamicTable
-                isLoading={isFormSubmitting}
-                blockNumber={selectedAddressObject?.blockNumber}
-            />
         </div>
     );
 }
