@@ -1,9 +1,16 @@
-import "./styles.css";
-import ArowBackIcon from "@rsuite/icons/ArowBack";
 import { Link } from "react-router-dom";
+import ArowBackIcon from "@rsuite/icons/ArowBack";
+
 import DynamicTable from "../dynamic-table";
+import { useAggregatorComp } from "./hooks";
+import DetailForm from "./partials/detail-form";
+import AddressDetails from "./partials/address-details";
+import "./styles.css";
 
 export default function AggregatorComp() {
+    const { onDetailFormSubmit, selectedAddressObject, isFormSubmitting } =
+        useAggregatorComp();
+
     return (
         <div className="main-container">
             <div className="heading-container">
@@ -16,10 +23,14 @@ export default function AggregatorComp() {
                 <div className="back-cta"></div>
             </div>
             <div className="upper-body">
-                <div className="upper-body-left"></div>
-                <div className="upper-body-right"></div>
+                <div className="upper-body-left">
+                    <AddressDetails data={selectedAddressObject} />
+                </div>
+                <div className="upper-body-right">
+                    <DetailForm onFormSubmit={onDetailFormSubmit} />
+                </div>
             </div>
-            <DynamicTable />
+            <DynamicTable isLoading={isFormSubmitting} />
         </div>
     );
 }

@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from "./App";
+import store from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import { AppRouter } from "./components/router";
 import "rsuite/dist/rsuite.min.css";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
     <React.StrictMode>
-        <AppRouter />
+        <Provider store={store}>
+            <AppRouter />
+        </Provider>
     </React.StrictMode>,
     document.getElementById("root")
 );

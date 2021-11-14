@@ -23,3 +23,25 @@
     cursor: pointer;
     color: #000;
 }
+
+.upper-body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.upper-body .upper-body-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.upper-body .upper-body-right {
+    min-width: 375px;
+}
+
+.each-row {
+    display: flex;
+}
+.each-row .each-row-value {
+    margin-left: 15px;
+}
