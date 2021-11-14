@@ -1,4 +1,9 @@
-### Redux design
+### Project setup
 
-1. address by id -> this will contain address, coin value and array of transactions ids
-2. transactions by id -> this will contain transaction object for each id
+```bash
+# this will run the project in dev - localhost:3000
+npm i && npm start
+
+# this will build the app and deploy it to prod
+npm run deploy-prod
+```
